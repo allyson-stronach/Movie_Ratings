@@ -15,7 +15,8 @@ def load_movies(session):
     pass
 
 def to_datetime_from_timestamp(timestamp):
-    return (datetime.datetime.fromtimestamp(int(timestamp))).strftime('%Y-%m-%d %H:%M:%S')
+    date_string = (datetime.datetime.fromtimestamp(int(timestamp))).strftime('%d-%b-%Y') # this line used to be: '%Y-%m-%d %H:%M:%S' if we wanted to include time info, we could re-include this info. 
+    return datetime.datetime.strptime(date_string, '%d-%b-%Y')
 
 def load_ratings(session):
     u_data_reader = csv.reader(u_data, delimiter = '\t')
@@ -31,10 +32,8 @@ def load_ratings(session):
         new_rating.rating = int(line[2])
         new_rating.timestamp = datetime
         session.add(new_rating)
-        session.commit()
-
-        #CURRENT ERROR
-        #(original cause: TypeError: SQLite DateTime type only accepts Python datetime and date objects as input.) u'INSERT INTO ratings (user_id, movie_id, rating, timestamp) VALUES (?, ?, ?, ?)' [{'movie_id': 242, 'user_id': 196, 'timestamp': '1997-12-04 07:55:49', 'rating': 3}]
+    
+    session.commit()
 
 
 def main(session):
