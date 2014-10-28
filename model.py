@@ -24,9 +24,10 @@ class Movie(Base):
     __tablename__ = "movies"
 
     id = Column(Integer, primary_key = True)
+    movie_id = Column(Integer, nullable=True)
     name = Column(String (64), nullable=True)
     released_at = Column(DateTime, nullable=True)
-    imdb_url = Column(String, nullable=True)
+    imdb_url = Column(String (200), nullable=True)
 
 class Rating(Base):
     __tablename__ = "ratings"
