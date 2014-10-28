@@ -1,0 +1,27 @@
+<html>
+<!-- nothing should ever go here -->
+    <head>
+<!-- title can go here; CSS links too -->
+        <title>
+            NOT-AS-CRAP
+        </title>
+<!-- picture icon in browser tab is favicon. It would go in the head as well -->
+    </head>
+    <body>
+        {% for user in user_list %}
+            <h2>User {{ user.id }}, age {{ user.age }} has {{ user.ratings|length }} ratings</h2>
+        <a href="/user/{{user.id}}">Link</a>
+        {% endfor %}
+    </body>
+</html>
+
+
+
+
+
+
+<!-- the following is pseudocode(ish) which shows us how we would have to write a line of code for each line that is displayed on the screen. we overcome this by writing the for loop in the body. 
+    jj here is equal to double curly braces because jinja is sort of crap in that it will still be run even if it's commented out
+    <h2>User jjuser[0].idjj, age jj user.age jj has ..
+    <h2>User jj user[1].idjj -->
+
