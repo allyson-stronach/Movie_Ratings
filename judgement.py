@@ -10,8 +10,19 @@ def index():
     return render_template("user_list.html", user_list=user_list)
 
 @app.route("/user/<int:id>")
-def user_or_something(id):
-    #do some stuff
+def movie_ratings_by_user(id):
+
+    #write a line that gets all movie ratings rated by single user
+    #model like line below:
+
+    ratings_list = model.session.query(model.Rating).WTF_DO_I_PUT_HERE
+
+    # it makes sense to put something like SELECT * FROM Ratings WHERE id = id 
+    # maybe it is filter_by()  <-search this in hackbright exercise page AND/OR SQL Alchemy documentation
+
+    return render_template("movie_rating_list.html", id=id, ratings_list=ratings_list)
+
+    pass 
 
 if __name__== "__main__":
     app.run(debug = True)

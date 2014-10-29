@@ -9,12 +9,11 @@
     </head>
     <body>
         {% for user in user_list %}
-            <h2>User {{ user.id }}, age {{ user.age }} has {{ user.ratings|length }} ratings</h2>
-        <a href="/user/{{user.id}}">Link</a>
+            <h2>User {{ user.id }}, age {{ user.age }}, has {{ user.ratings|length }} ratings.</h2>
+            <a href="/user/{{user.id}}">Click here to see the movies I've rated.</a>
         {% endfor %}
     </body>
 </html>
-
 
 
 

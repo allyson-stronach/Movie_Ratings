@@ -1,0 +1,15 @@
+<html>
+<!-- nothing should ever go here -->
+    <head>
+<!-- title can go here; CSS links too -->
+        <title>
+            NOT-AS-CRAP
+        </title>
+<!-- picture icon in browser tab is favicon. It would go in the head as well -->
+    </head>
+    <body>
+        {% for rating in ratings_list %}
+            <h2>User {{ id }} gave {{ rating.movie.name }} a rating of {{ rating.rating }}.</h2>
+        {% endfor %}
+    </body>
+</html>
