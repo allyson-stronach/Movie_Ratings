@@ -35,10 +35,12 @@ class Movie(Base):
 
     id = Column(Integer, primary_key = True)
     # we don't need the line below! in this table, there will only be one movie--remake db???
-    #movie_id = Column(Integer, nullable=True)
+    movie_id = Column(Integer, nullable=True)
     name = Column(String (64), nullable=True)
     released_at = Column(DateTime, nullable=True)
     imdb_url = Column(String (200), nullable=True)
+
+    #Movie table is backreferenced from Rating table
 
 class Rating(Base):
     __tablename__ = "ratings"
@@ -50,7 +52,6 @@ class Rating(Base):
     timestamp = Column(DateTime, nullable=True)
 
     user = relationship("User", backref=backref("ratings", order_by=id))
-    #added the line below to access movie name from ratings table; not sure about the order_by=id part...see above for id issue
     movie = relationship("Movie", backref=backref("ratings", order_by=id))
 
 

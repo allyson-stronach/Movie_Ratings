@@ -9,7 +9,7 @@
     </head>
     <body>
         {% for rating in ratings_list %}
-            <h2>User {{ id }} gave {{ rating.movie.name }} a rating of {{ rating.rating }}.</h2>
+            <h2>User {{ user_id }} gave {{ rating.movie.name }} a rating of {{ rating.rating }}.</h2>
         {% endfor %}
     </body>
 </html>

@@ -8,10 +8,17 @@
 <!-- picture icon in browser tab is favicon. It would go in the head as well -->
     </head>
     <body>
+        <button>
+        Signup! 
+        </button>
+        
         {% for user in user_list %}
             <h2>User {{ user.id }}, age {{ user.age }}, has {{ user.ratings|length }} ratings.</h2>
             <a href="/user/{{user.id}}">Click here to see the movies I've rated.</a>
         {% endfor %}
+
+
+
     </body>
 </html>
 
